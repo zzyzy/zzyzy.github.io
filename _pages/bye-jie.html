@@ -68,7 +68,7 @@ Take care, don't be nervous, remember you're a bear :D -KTHXBAI-
     var seconds = duration.seconds() < 10 ? '0' + duration.seconds() : duration.seconds();
     var minutes = duration.minutes() < 10 ? '0' + duration.minutes() : duration.minutes();
     var hours = duration.hours() < 10 ? '0' + duration.hours() : duration.hours();
-    var days = duration.days();
+    var days = Math.floor(duration.asDays());
 
     countdown.innerHTML = days + ":" + hours + ':' + minutes + ':' + seconds;
   }
