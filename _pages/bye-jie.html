@@ -1,0 +1,64 @@
+---
+layout: bye-jie
+title: Bye Jie
+permalink: /jie/
+---
+<div id="portrait"></div>
+<div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+  <div id="countdown">
+  </div>
+</div>
+<iframe width="560" height="315" style="visibility: hidden; position: absolute; top: 0; left: 0;" src="https://www.youtube.com/embed/5gFnCwVqbWs?autoplay=1" frameborder="0"></iframe>
+
+<script>
+  "use strict";
+
+  var countdown = document.querySelector('#countdown');
+  var portrait = document.querySelector('#portrait');
+
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+  }
+
+  function setCountdown() {
+    var now = moment();
+    var target = moment('201708282310', 'YYYYMMDDHHmm');
+    var diff = target.diff(now);
+    var duration = moment.duration(diff);
+
+    var seconds = duration.seconds() < 10 ? '0' + duration.seconds() : duration.seconds();
+    var minutes = duration.minutes() < 10 ? '0' + duration.minutes() : duration.minutes();
+    var hours = duration.hours() < 10 ? '0' + duration.hours() : duration.hours();
+
+    countdown.innerHTML = hours + ':' + minutes + ':' + seconds;
+  }
+
+  function randomizeColor() {
+    var r = getRandomIntInclusive(0, 255);
+    var g = getRandomIntInclusive(0, 255);
+    var b = getRandomIntInclusive(0, 255);
+    $(countdown).css('color', 'rgb(' + r + ', ' + g + ', ' + b + ')');
+  }
+
+  function randomizeOpacity() {
+    $(portrait).css('opacity', Math.random());
+  }
+
+  $(document).ready(function() {
+    setCountdown();
+    randomizeColor();
+    randomizeOpacity();
+  });
+
+  window.setInterval(function() {
+    setCountdown();
+    randomizeColor();
+    randomizeOpacity();
+  }, 1000);
+
+  window.setInterval(function() {
+    randomizeOpacity();
+  }, 100);
+</script>
