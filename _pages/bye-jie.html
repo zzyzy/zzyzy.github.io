@@ -57,6 +57,11 @@ Take care, don't be nervous, remember you're a bear :D -KTHXBAI-
   function setCountdown() {
     var now = moment();
     var target = moment('201708282310', 'YYYYMMDDHHmm');
+
+    if (now.isAfter(target)) {
+      target = target.add(3, 'y');
+    }
+
     var diff = target.diff(now);
     var duration = moment.duration(diff);
 

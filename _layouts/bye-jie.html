@@ -30,20 +30,23 @@
       font-size: 144px;
       text-align: center;
       position: relative;
-      z-index: 2;
+      z-index: 1000;
     }
 
     #pin {
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 1;
+      z-index: 999;
     }
 
     #remarks {
       font-family: 'Roboto Mono', monospace;
       font-size: 14px;
-      color: #F24E2B;
+      color: #FFFFFF;
+      position: relative;
+      z-index: 998;
+      text-shadow: 0.2px 0.4px 0.2px rgba(0, 0, 0, 0.6); 
       /* margin-left: 20px; */
     }
   </style>
