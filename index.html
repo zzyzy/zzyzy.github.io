@@ -2,4 +2,9 @@
 layout: just-resume
 ---
 
-<object id="my-resume" style="width: 100%; height: 100%;" data="my-resume-new-1.3.pdf"></object>
+<!-- <object id="my-resume" style="width: 100%; height: 100%;" data="my-resume-new-1.3.pdf"></object> -->
+<iframe
+    src="{{ "/scripts/web/viewer.html?file=/files/my-resume-new-1.3.pdf" | prepend: site.baseurl }}"
+    width="100%"
+    height="100%"
+    style="border: none;" />
